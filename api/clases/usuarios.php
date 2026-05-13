@@ -1,5 +1,5 @@
 <?php
-require_once '../clases/BD.php';
+require_once __DIR__ . '/BD.php';
 
 /**
  * Clase Usuario.

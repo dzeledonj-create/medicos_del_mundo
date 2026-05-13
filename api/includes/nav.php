@@ -1,5 +1,5 @@
 <nav class="barranav">
-    <a href="index.php" class="nav-brand">
+    <a href="/index.php" class="nav-brand">
         <span class="icono"><i class="bi bi-house"></i></span>
         <span class="texto"> Inicio</span>
     </a>

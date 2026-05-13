@@ -1,16 +1,16 @@
 <?php
-require_once '../clases/faq.php';
+require_once __DIR__ . '/../clases/faq.php';
 
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../login.php");
+    header("Location: /admin/login.php");
     exit;
 }
 
 if (isset($_POST["eliminar"])) {
     Faq::eliminar((int)$_POST["id_faq"]);
-    header("Location: gestion_faqs.php");
+    header("Location: /admin/gestion_faqs.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ if (isset($_POST["crear"])) {
         $_POST["pregunta"],
         $_POST["respuesta"]
     );
-    header("Location: gestion_faqs.php");
+    header("Location: /admin/gestion_faqs.php");
     exit;
 }
 
@@ -31,11 +31,11 @@ $todasLasFaqs = Faq::obtenerTodas();
     <meta charset="UTF-8">
     <title>Admin FAQs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once '../includes/nav_admin.php'; ?>
+<?php include_once __DIR__ . '/includes/nav_admin.php'; ?>
 
 <section class="panel-general-admin">
     <main class="gestion-contenido">

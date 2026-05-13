@@ -1,6 +1,6 @@
 <?php
-require_once 'clases/bloque.php';
-require_once 'clases/categoria.php';
+require_once __DIR__ . '/clases/bloque.php';
+require_once __DIR__ . '/clases/categoria.php';
 
 // Obtención del ID de categoría de forma segura
 $id_categoria = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -19,11 +19,11 @@ $titulo_categoria = $categoria_actual ? $categoria_actual->getTitulo() : 'esta c
     <title>Contenido - Médicos del Mundo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once 'includes/nav.php'; ?>
+<?php include_once __DIR__ . '/includes/nav.php'; ?>
 
 <main class="contenido_principal">
     <div style="
@@ -58,7 +58,7 @@ $titulo_categoria = $categoria_actual ? $categoria_actual->getTitulo() : 'esta c
             <p>Consulta a continuación la guía detallada paso a paso sobre esta categoría. Cada punto te ofrece información clave y recursos visuales.</p>
         </section>
         <section class="bienvenida-imagen">
-            <img src="assets/imagenes/trabajadoras_ilustracion.jpg" alt="Ilustración general">
+            <img src="/assets/imagenes/trabajadoras_ilustracion.jpg" alt="Ilustración general">
         </section>
     </section>
 
@@ -99,7 +99,7 @@ $titulo_categoria = $categoria_actual ? $categoria_actual->getTitulo() : 'esta c
 
 </main>
 
-<?php include_once 'includes/footer.php'; ?>
+<?php include_once __DIR__ . '/includes/footer.php'; ?>
 
 </body>
 </html>

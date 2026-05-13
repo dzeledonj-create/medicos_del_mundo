@@ -1,15 +1,15 @@
 <?php
-require_once   '../clases/faq.php';
+require_once  __DIR__ . '/../clases/faq.php';
 
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../login.php");
+    header("Location: /admin/../login.php");
     exit;
 }
 
 if (!isset($_GET['id'])) {
-    header("Location: gestion_faqs.php");
+    header("Location: /admin/gestion_faqs.php");
     exit;
 }
 
@@ -21,7 +21,7 @@ if (isset($_POST["actualizar"])) {
         $_POST["pregunta"],
         $_POST["respuesta"]
     );
-    header("Location: gestion_faqs.php");
+    header("Location: /admin/gestion_faqs.php");
     exit;
 }
 
@@ -34,11 +34,11 @@ $faq_editar = Faq::obtenerPorId($id_faq);
     <meta charset="UTF-8">
     <title>Editar FAQ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once '../includes/nav_admin.php'; ?>
+<?php include_once __DIR__ . '/includes/nav_admin.php'; ?>
 
 <section class="panel-general-admin">
     <main class="gestion-contenido">
@@ -48,7 +48,7 @@ $faq_editar = Faq::obtenerPorId($id_faq);
                 <h1>Editar FAQ</h1>
                 <p>Modifica los datos de la pregunta seleccionada.</p>
             </section>
-            <a href="gestion_faqs.php" class="btn-eliminar">
+            <a href="/admin/gestion_faqs.php" class="btn-eliminar">
                 <i class="bi bi-arrow-left"></i> Volver
             </a>
         </section>

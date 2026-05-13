@@ -1,5 +1,5 @@
 <?php
-require_once 'clases/Faq.php';
+require_once __DIR__ . '/clases/Faq.php';
 $faqs = Faq::obtenerTodas();
 ?>
 <!DOCTYPE html>
@@ -10,11 +10,11 @@ $faqs = Faq::obtenerTodas();
     <title>Médicos del Mundo - FAQ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once 'includes/nav.php'; ?>
+<?php include_once __DIR__ . '/includes/nav.php'; ?>
 
 <main class="contenido_principal">
 <div style="
@@ -49,7 +49,7 @@ $faqs = Faq::obtenerTodas();
             <p>Encuentra respuestas rápidas sobre tus derechos y trámites. Estamos aquí para informarte.</p>
         </section>
         <section class="bienvenida-imagen">
-            <img src="assets/imagenes/trabajadoras_ilustracion.jpg" alt="Ilustración ayuda">
+            <img src="/assets/imagenes/trabajadoras_ilustracion.jpg" alt="Ilustración ayuda">
         </section>
     </section>
 
@@ -87,12 +87,12 @@ $faqs = Faq::obtenerTodas();
 
         <?php } ?>
     </section>
-    <a href="anadir_faq.php" class="anadir_faq">
+    <a href="/admin/anadir_faq.php" class="anadir_faq">
         <i class="bi bi-chat-dots"></i> Deja tus preguntas
     </a>
 </main>
 
-<?php include_once 'includes/footer.php'; ?>
+<?php include_once __DIR__ . '/includes/footer.php'; ?>
 
 </body>
 </html>

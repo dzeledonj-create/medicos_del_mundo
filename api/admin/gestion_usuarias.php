@@ -1,19 +1,19 @@
 <?php
 // Cargamos la clase Usuario (que incluye BD.php internamente)
-require_once '../clases/usuarios.php';
+require_once __DIR__ . '/../clases/usuarios.php';
 
 // Iniciamos sesión para comprobar si hay alguien logueado
 session_start();
 
 // Si no hay usuario logueado lo mandamos al login
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../login.php");
+    header("Location: /admin/login.php");
     exit;
 }
 
 // Solo la Administradora (id_rol = 1) puede acceder a la gestión de usuarios
 if ($_SESSION["usuario"]->getIdRol() != 1) {
-    header("Location: panel_admin.php");
+    header("Location: /admin/panel_admin.php");
     exit;
 }
 
@@ -21,14 +21,14 @@ if ($_SESSION["usuario"]->getIdRol() != 1) {
 if (isset($_POST["eliminar"])) {
     $id = (int)$_POST["id_usuario"]; // (int) para asegurarnos de que es un número
     Usuario::eliminar($id);
-    header("Location: gestion_usuarias.php");
+    header("Location: /admin/gestion_usuarias.php");
     exit;
 }
 
 // Si se envió el formulario de crear
 if (isset($_POST["crear"])) {
     Usuario::crear($_POST["nombre"], $_POST["email"], $_POST["password"], (int)$_POST["id_rol"]);
-    header("Location: gestion_usuarias.php");
+    header("Location: /admin/gestion_usuarias.php");
     exit;
 }
 
@@ -43,11 +43,11 @@ $usuarios = Usuario::obtenerTodos();
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once '../includes/nav_admin.php'; ?>
+<?php include_once __DIR__ . '/includes/nav_admin.php'; ?>
 
 <section class="panel-general-admin">
     <main class="gestion-contenido">
@@ -67,7 +67,7 @@ $usuarios = Usuario::obtenerTodos();
                 method="POST" envía los datos de forma segura.
                 action="admin_usuarios.php" envía al mismo archivo para procesarlo arriba.
             -->
-            <form method="POST" action="gestion_usuarias.php">
+            <form method="POST" action="/admin/gestion_usuarias.php">
                 <section class="formulario-fila">
                     <section class="campo-grupo">
                         <label>Nombre</label>
@@ -122,7 +122,7 @@ $usuarios = Usuario::obtenerTodos();
                         <!-- Si id_rol es 1 mostramos "Administrador", si no "Usuario" -->
                         <td><?= $usuario->getIdRol() == 1 ? 'Administrador' : 'Usuario' ?></td>
                         <td>
-                            <a href="editar_usuaria.php?id=<?= $usuario->getIdUsuario() ?>" class="btn-editar">
+                            <a href="/admin/editar_usuaria.php?id=<?= $usuario->getIdUsuario() ?>" class="btn-editar">
                                 <i class="bi bi-pencil"></i> Editar
                             </a>
                             <!--
@@ -131,7 +131,7 @@ $usuarios = Usuario::obtenerTodos();
                                 name="eliminar" es lo que detecta el if(isset($_POST["eliminar"])).
                                 onclick="return confirm(...)" pide confirmación antes de eliminar.
                             -->
-                            <form method="POST" action="gestion_usuarias.php">
+                            <form method="POST" action="/admin/gestion_usuarias.php">
                                 <input type="hidden" name="id_usuario" value="<?= $usuario->getIdUsuario() ?>">
                                 <!-- onlick return para que pide confirmación-->
                                 <button type="submit" name="eliminar" class="btn-eliminar"

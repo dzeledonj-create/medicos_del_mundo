@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once "../clases/usuarios.php";
+require_once __DIR__ . '/../clases/usuarios.php';
 
 // Si hay usuario logueado lo mandamos al panel de admin directo
 if (isset($_SESSION["usuario"])) {
-    header("Location: panel_admin.php");
+    header("Location: /admin/panel_admin.php");
     exit;
 }
 
@@ -33,7 +33,7 @@ if (isset($_POST["comprobar"])) {
     <title>Médicos del Mundo - Inicio</title>
     <!-- Fuente 'Inter' de Google Fonts . -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 <!-- Fondo completo de la página, centra la tarjeta verticalmente y horizontalmente -->
@@ -49,7 +49,7 @@ if (isset($_POST["comprobar"])) {
 
         <!-- Cuerpo del formulario: campos de email y contraseña -->
         <section class="formulario-login">
-            <form method="POST" action="login.php">
+            <form method="POST" action="/admin/login.php">
 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Tu email" required>

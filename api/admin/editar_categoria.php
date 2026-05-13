@@ -1,5 +1,5 @@
 <?php
-require_once '../clases/categoria.php';
+require_once __DIR__ . '/../clases/categoria.php';
 
 session_start();
 
@@ -24,8 +24,8 @@ if (isset($_POST["actualizar"])) {
     // Si el usuario sube una imagen nueva la procesamos, si no, conservamos la que ya tenía
     if ($_FILES["icono"]["error"] === UPLOAD_ERR_OK) {
         $nombre_archivo = basename($_FILES["icono"]["name"]);
-        move_uploaded_file($_FILES["icono"]["tmp_name"], "../assets/imagenes/icono_categoria/" . $nombre_archivo);
-        $ruta_icono = "assets/imagenes/icono_categoria/" . $nombre_archivo;
+        move_uploaded_file($_FILES["icono"]["tmp_name"], __DIR__ . "/../assets/imagenes/icono_categoria/" . $nombre_archivo);
+        $ruta_icono = "/assets/imagenes/icono_categoria/" . $nombre_archivo;
     } else {
         // No subió imagen nueva, mantenemos la ruta que ya tenía en la BD
         $ruta_icono = $_POST["icono_actual"];
@@ -59,11 +59,11 @@ $todasLasCategorias = Categoria::obtenerTodasAdmin();
     <meta charset="UTF-8">
     <title>Editar Categoría</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/../assets/estilos.css">
 </head>
 <body>
 
-<?php include_once '../includes/nav_admin.php'; ?>
+<?php include_once __DIR__ . '/admin/../includes/nav_admin.php'; ?>
 
 <section class="panel-general-admin">
     <main class="gestion-contenido">
@@ -91,7 +91,7 @@ $todasLasCategorias = Categoria::obtenerTodasAdmin();
                         <label>Icono</label>
                         <!-- Guardamos la ruta actual en un campo oculto para recuperarla si no se sube imagen nueva -->
                         <input type="hidden" name="icono_actual" value="<?= htmlspecialchars($categoria_editar->getIcono()) ?>">
-                        <img src="../<?= htmlspecialchars($categoria_editar->getIcono()) ?>" class="icono-pequeno-tabla" alt="icono actual">
+                        <img src="/../<?= htmlspecialchars($categoria_editar->getIcono()) ?>" class="icono-pequeno-tabla" alt="icono actual">
                         <input type="file" name="icono" accept="image/*">
                     </section>
 

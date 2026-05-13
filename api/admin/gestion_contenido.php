@@ -1,17 +1,17 @@
 <?php
-require_once '../clases/bloque.php';
-require_once '../clases/categoria.php';
+require_once __DIR__ . '/../clases/bloque.php';
+require_once __DIR__ . '/../clases/categoria.php';
 
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../login.php");
+    header("Location: /admin/login.php");
     exit;
 }
 
 if (isset($_POST["eliminar"])) {
     Bloque::eliminar((int)$_POST["id_bloque"]);
-    header("Location: gestion_contenido.php");
+    header("Location: /admin/gestion_contenido.php");
     exit;
 }
 
@@ -21,7 +21,7 @@ if (isset($_POST["crear"])) {
     $ruta_icono = "";
     if ($_FILES["icono"]["error"] === UPLOAD_ERR_OK) {
         $nombre_archivo = basename($_FILES["icono"]["name"]);
-        move_uploaded_file($_FILES["icono"]["tmp_name"], "../assets/imagenes/icono_contenido/" . $nombre_archivo);
+        move_uploaded_file($_FILES["icono"]["tmp_name"], __DIR__ . "/../assets/imagenes/icono_contenido/" . $nombre_archivo);
         $ruta_icono = "assets/imagenes/icono_contenido/" . $nombre_archivo;
     }
 
@@ -33,7 +33,7 @@ if (isset($_POST["crear"])) {
             (int)$_POST["id_categoria"],
             $ruta_icono
     );
-    header("Location: gestion_contenido.php");
+    header("Location: /admin/gestion_contenido.php");
     exit;
 }
 
@@ -47,11 +47,11 @@ $todasLasCategorias = Categoria::obtenerTodasAdmin();
     <meta charset="UTF-8">
     <title>Admin Contenido</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once '../includes/nav_admin.php'; ?>
+<?php include_once __DIR__ . '/includes/nav_admin.php'; ?>
 
 <section class="panel-general-admin">
     <main class="gestion-contenido">
@@ -133,7 +133,7 @@ $todasLasCategorias = Categoria::obtenerTodasAdmin();
                         <td><?= $bloque->getIdBloque() ?></td>
 
                         <td>
-                            <img src="../<?= htmlspecialchars($bloque->getUrlImagen()) ?>" class="icono-pequeno-tabla" alt="icono de cada contenido">
+                            <img src="/<?= htmlspecialchars($bloque->getUrlImagen()) ?>" class="icono-pequeno-tabla" alt="icono de cada contenido">
                         </td>
 
                         <td><strong><?= htmlspecialchars($bloque->getTitulo()) ?></strong></td>

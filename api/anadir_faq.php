@@ -1,5 +1,5 @@
 <?php
-require_once 'clases/Faq.php';
+require_once __DIR__ . '/clases/Faq.php';
 
 // Si se ha pulsado el botón de guardar
 if (isset($_POST['guardar'])) {
@@ -28,7 +28,7 @@ if (isset($_POST['guardar'])) {
 </head>
 <body>
 
-<?php include_once 'includes/nav.php'; ?>
+<?php include_once __DIR__ . '/includes/nav.php'; ?>
 
 <main class="contenido_principal">
 
@@ -56,7 +56,7 @@ if (isset($_POST['guardar'])) {
 
 </main>
 
-<?php include_once 'includes/footer.php'; ?>
+<?php include_once __DIR__ . '/includes/footer.php'; ?>
 
 </body>
 </html>

@@ -1,16 +1,16 @@
 <?php
-require_once '../clases/categoria.php';
+require_once __DIR__ . '/../clases/categoria.php';
 
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../login.php");
+    header("Location: /admin/login.php");
     exit;
 }
 
 if (isset($_POST["eliminar"])) {
     Categoria::eliminar((int)$_POST["id_categoria"]);
-    header("Location: gestion_categorias.php");
+    header("Location: /admin/gestion_categorias.php");
     exit;
 }
 
@@ -21,7 +21,7 @@ if (isset($_POST["crear"])) {
     $ruta_icono = "";
     if ($_FILES["icono"]["error"] === UPLOAD_ERR_OK) {
         $nombre_archivo = basename($_FILES["icono"]["name"]);
-        move_uploaded_file($_FILES["icono"]["tmp_name"], "../assets/imagenes/icono_categoria/" . $nombre_archivo);
+        move_uploaded_file($_FILES["icono"]["tmp_name"], __DIR__ . "/../assets/imagenes/icono_categoria/" . $nombre_archivo);
         $ruta_icono = "assets/imagenes/icono_categoria/" . $nombre_archivo;
     }
 
@@ -32,7 +32,7 @@ if (isset($_POST["crear"])) {
             $id_madre,
             (int)$_POST["orden"]
     );
-    header("Location: gestion_categorias.php");
+    header("Location: /admin/gestion_categorias.php");
     exit;
 }
 
@@ -44,11 +44,11 @@ $todasLasCategorias = Categoria::obtenerTodasAdmin();
     <meta charset="UTF-8">
     <title>Admin Categorías</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
-<?php include_once '../includes/nav_admin.php'; ?>
+<?php include_once __DIR__ . '/includes/nav_admin.php'; ?>
 
 <section class="panel-general-admin">
     <main class="gestion-contenido">
@@ -127,7 +127,7 @@ $todasLasCategorias = Categoria::obtenerTodasAdmin();
                         <td><?= $categoria->getIdCategoria() ?></td>
 
                         <td>
-                            <img src="../<?= $categoria->getIcono() ?>" class="icono-pequeno-tabla" alt="">
+                            <img src="/<?= $categoria->getIcono() ?>" class="icono-pequeno-tabla" alt="">
                         </td>
 
                         <td><strong><?= htmlspecialchars($categoria->getTitulo()) ?></strong></td>
