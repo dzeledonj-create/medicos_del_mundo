@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/BD.php';
+require_once __DIR__ . 'BD.php';
 
 /**
  * Clase Categoria, Representa una categoría del sistema (puede ser madre o hija de otra).
