@@ -20,7 +20,7 @@ $categorias = Categoria::obtenerCategorias();
 </head>
 <body>
 
-<?php include_once 'includes/nav.php'; ?>
+<?php include_once __DIR__ . '/../includes/nav.php'; ?>
 
 <main class="contenido_principal">
 
@@ -31,7 +31,7 @@ $categorias = Categoria::obtenerCategorias();
             <p>Aquí encontrarás información clara y sencilla sobre tus derechos como trabajada en España. No importa tu situación, tienes derechos y estamos aquí para ayudarte a conocerlos.</p>
         </section>
         <section class="bienvenida-imagen">
-            <img src="assets/imagenes/trabajadoras_ilustracion.jpg" alt="Ilustración de trabajadores de diferentes sectores">
+            <img src=<?php echo __DIR__ . "/../assets/imagenes/trabajadoras_ilustracion.jpg"; ?> alt="Ilustración de trabajadores de diferentes sectores">
         </section>
     </section>
     <!-- Sección del encabezado de debajo del nav -->
@@ -69,7 +69,7 @@ $categorias = Categoria::obtenerCategorias();
 
 <?php
 // Para incluir el pie de página.
-include_once 'includes/footer.php';
+include_once __DIR__ . '/../includes/footer.php';
 ?>
 
 </body>
