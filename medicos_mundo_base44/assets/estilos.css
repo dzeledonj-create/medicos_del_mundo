@@ -1,0 +1,984 @@
+/* ==========================================================================
+   RESET, VARIABLES Y TIPOGRAFÍA GENERAL
+   ========================================================================== */
+:root {
+  --primary: rgb(147, 64, 224);
+  --primary-lt: #ebd9fa;
+  --primary-dk: #6b20af;
+  --bg: #f8f8f8;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text-main: #1a202c;
+  --text-muted: #718096;
+  --radius: 6px;
+  --shadow: 0 4px 6px -1px rgba(147, 64, 224, 0.08), 0 2px 4px -1px rgba(147, 64, 224, 0.04);
+  --shadow-lg: 0 15px 25px -5px rgba(147, 64, 224, 0.15), 0 8px 10px -6px rgba(147, 64, 224, 0.1);
+}
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    min-height: 100vh;
+    font-family: 'Inter', Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.2s;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN 
+   ========================================================================== */
+.barranav {
+    background-color: var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.barranav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 21px;
+}
+
+.boton-salida {
+    background-color: #ff4d4d;
+    border-radius: 99px;
+    margin-left: auto;
+    padding: 8px 18px !important;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+    font-size: 17px !important;
+}
+
+.boton-salida:hover {
+    background-color: #cc0000;
+    color: white;
+    transform: scale(1.05);
+}
+
+i {
+    font-size: 1.6rem; color: white;
+}
+
+/* ==========================================================================
+   APARTADO PARA LAS TARJETAS DE LAS CATEGORÍAS 
+   ========================================================================== */
+/* --- Estilos para la nueva sección Hero --- */
+.bienvenida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 40px auto; /* Centra la sección y da margen arriba y abajo */
+    gap: 80px; /* Espacio entre el texto y la imagen */
+    padding: 0 40px;
+    margin-top: 100px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+}
+
+.bienvenida-text {
+    flex: 0 0 55%; /* Toma la mitad del espacio disponible */
+    padding-right: 20px;
+}
+
+.bienvenida-img {
+    flex: 0 0 40%; /* Toma la otra mitad del espacio disponible */
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ebd9fa;
+}
+
+.bienvenida-imagen img {
+    margin-top: 20px;
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+    background-color: #ebd9fa;
+    /* Si la imagen de tu referencia tiene fondo blanco y sombra, descomenta la siguiente línea: */
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.1); */
+}
+
+/* --- Tipografía y Botones de la nueva sección --- */
+.bienvenida-info {
+    background-color: var(--primary-dk);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.bienvenida-text h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.bienvenida-rojo {
+    color: var(--primary-dk); /* Ajusta este rojo al de tu marca */
+}
+
+.bienvenida-text p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 100%;
+    margin-top: 20px;
+}
+/* Ajuste opcional para separar los bloques repetidos */
+.bloques-container .bienvenida {
+    margin-top: 30px !important;
+    margin-bottom: 30px;
+}
+
+.contenido_principal { 
+    width: 100%;
+    max-width: 1200px !important; 
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.texto_arriba {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 120px;
+    
+}
+.texto_arriba h1 {
+    font-size: clamp(2rem, 4vw, 3rem); /* esto es para adaptarlo a los moviles de las usuarias */
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+.texto_arriba p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.tarjetas-link {
+    display: block;
+    height: 100%;
+}
+
+.tarjetas {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 35px 30px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--shadow);
+}
+
+.tarjetas:hover {
+    transform: translateY(-8px); /* Salto suave hacia arriba */
+    box-shadow: var(--shadow-lg);/* los var los tengo declarados arriba en el root*/
+    border-color: var(--primary-lt);
+}
+.tarjetas:hover::before { 
+    opacity: 1; 
+}
+
+.iconos {
+    width: 65px; height: 65px;
+    border-radius: 4px;
+    background: var(--primary-lt); /* Fondo suave para el icono */
+    display: flex; 
+    align-items: 
+    center; 
+    justify-content: center;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 0 1px rgba(147, 64, 224, 0.1);
+}
+.iconos img { 
+    width: 35px; 
+    height: 35px; 
+    object-fit: contain; 
+}
+
+.tarjetas h3 {
+    font-size: 1.4rem; 
+    font-weight: 800;
+    color: var(--primary-dk); 
+    margin-bottom: 12px;
+}
+.tarjetas p {
+    color: var(--text-muted); 
+    font-size: 0.98rem;
+    line-height: 1.6; 
+    margin-bottom: 25px; 
+    flex-grow: 1;
+}
+
+/* El botoncito de "Ver información ->" */
+.tarjeta_footer {
+    display: inline-flex; 
+    align-items: center;
+    color: var(--primary); 
+    font-weight: 700; 
+    font-size: 0.95rem;
+    margin-top: auto; 
+    padding-top: 15px; 
+    border-top: 1px solid var(--border);
+}
+.tarjeta_footer .flecha {
+    margin-left: 8px; 
+    transition: transform 0.3s ease;
+}
+
+.tarjetas:hover .flecha {
+    transform: translateX(8px); /* La flecha se mueve a la derecha */
+}
+/* ==========================================================================
+   APARTADO DE PREGUNTAS FRECUENTES (FAQs) - ACTUALIZADO
+   ========================================================================== */
+
+.contenedor-faqs {
+    max-width: 800px; /* Un poco más estrecho se lee mejor */
+    margin: 40px auto 100px auto;
+    padding: 0 20px;
+}
+
+.faq-item {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    margin-bottom: 25px; /* Mayor separación entre preguntas */
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+/* Título de la pregunta */
+.faq-item summary {
+    padding: 20px 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-dk); /* Color de tu marca */
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Icono + de Bootstrap */
+.faq-item summary::after {
+    content: "\f4fe"; /* Un icono de círculo con más bi-plus-circle */
+    font-family: "bootstrap-icons";
+    color: var(--primary);
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+/* Estado abierto */
+.faq-item[open] {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-lt);
+}
+
+.faq-item[open] summary {
+    color: var(--primary);
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+    color: #e60000; /* Rojo cuando se abre */
+}
+
+/* Bloque de respuesta */
+.faq-respuesta {
+    padding: 0 25px 25px 25px;
+    color: var(--text-main);
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.faq-respuesta p {
+    margin: 0;
+}
+
+/* Efecto hover */
+.faq-item:hover {
+    transform: scale(1.01);
+    border-color: var(--primary);
+}
+
+.sin-faqs {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-muted);
+    background: #fff;
+    border-radius: var(--radius);
+}
+/* Botón de añadir FAQ */
+.anadir_faq {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+.anadir_faq:hover {
+    background-color: var(--primary-dk);
+    color: white;
+}
+/* ==========================================================================
+   FORMULARIO BÁSICO PARA AÑADIR PREGUNTAS
+   ========================================================================== */
+
+.formulario-faq {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    gap: 15px; /* Separa los elementos automáticamente */
+}
+
+.formulario-faq label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: var(--text-main);
+}
+
+.formulario-faq input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.btn-guardar {
+    background-color: var(--primary); /* Usa tu morado */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.enlace-cancelar {
+    text-align: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.enlace-cancelar:hover {
+    text-decoration: underline;
+}
+
+/*************************************************/
+/********** APARTADO PARA EL LOGIN **************/
+/*************************************************/
+
+/* Ocupa toda la pantalla con la imagen de fondo */
+.pagina-login {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;   /* <-- esto la centra verticalmente */
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-image: url('imagenes/login/foto-login.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tarjeta flotante encima de la foto, a la derecha */
+.tarjeta-login {
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 90px;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+    /* Esto la separa de la derecha y la centra verticalmente */
+    margin-right: 17%;
+}
+
+/* Título */
+.cabecera-login h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+    color: #333;
+}
+
+/* Campos uno debajo del otro */
+.formulario-login form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Etiquetas */
+.formulario-login label {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+}
+
+/* Inputs de email y contraseña */
+.formulario-login input[type="email"],
+.formulario-login input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Input activo al hacer click */
+.formulario-login input[type="email"]:focus,
+.formulario-login input[type="password"]:focus {
+    border-color: #4a90e2;
+}
+
+/* Botón entrar */
+.formulario-login input[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formulario-login input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* Botón volver */
+.volver {
+    font-size: 14px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--primary);
+    width: 50%;
+    padding: 6px 0;
+}
+
+.volver a {
+    color: white;
+    text-decoration: none;
+}
+
+.volver:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-lt);
+}
+
+/* Error */
+.error-login {
+    margin-top: 15px;
+    background-color: #fdd;
+    color: red;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/*************************************************/
+/********** APARTADO PARA EL FOOTER **************/
+/*************************************************/
+
+/* Contenedor principal */
+.footer {
+    background-color: rgb(147, 64, 224);
+    color: white;
+    width: 100%;
+    padding: 20px 0 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: auto;
+}
+
+/* Las columnas (antiguo .footer-columna) */
+.footer section {
+    padding: 15px;
+    max-width: 40%; /* Para que no se peguen en pantallas medianas */
+    min-width: 250px;
+}
+
+/* Títulos (antiguo .footer-titulo) */
+.footer h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* Datos de contacto (antiguo .footer-datos) */
+.footer address {
+    font-style: normal;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Enlaces dentro del footer */
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Afecta solo a la parte baja del footer */
+.footer small {
+    display: block;
+    width: 80%;
+    margin: 20px auto 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/*************************************************/
+/********** APARTADO PARA EL ADMIN **************/
+/*************************************************/
+.panel-general-admin{
+    display: flex;
+    flex: 1;
+    margin-top: 65px;
+    min-height: calc(100vh - 65px);
+}
+.panel-contenido {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.panel-contenido h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-top: 20px;
+}
+.panel-contenido > p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+.panel-accesos {
+    display: flex;
+    gap: 24px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.panel-acceso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 60px 80px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow);
+    min-width: 220px;
+}
+.panel-acceso i {
+    font-size: 3.5rem;
+    color: var(--primary);
+}
+.panel-acceso:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* >> GESTIÓN DE LOS USUARIOS ------------------------------ */
+
+.gestion-contenido {
+    flex: 1;
+    padding: 50px 60px;
+}
+
+.gestion-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.gestion-cabecera h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.gestion-formulario {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow);
+}
+
+.gestion-formulario h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+.formulario-fila {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.campo-grupo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.campo-grupo input,
+.campo-grupo select {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--bg);
+    color: var(--text-main);
+    transition: border-color 0.2s;
+}
+
+.campo-grupo input:focus,
+.campo-grupo select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.gestion-tabla {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-admin thead {
+    background: var(--primary-lt);
+}
+
+.tabla-admin th {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-dk);
+}
+
+.tabla-admin td {
+    padding: 14px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+/* Le decimos que SOLO la última celda de la fila (la de acciones) use flex */
+.tabla-admin td:last-child {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ahora sí funciona la separación */
+}
+
+.tabla-admin td form {
+    margin: 0;
+}
+
+.tabla-admin tbody tr:hover {
+    background: var(--bg);
+}
+
+.btn-primario {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primario:hover {
+    background: var(--primary-dk);
+}
+.btn-editar {
+    background-color: var(--primary);
+    color: white;
+    padding: 6px 14px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    /* --- ESTO IGUALA EL TAMAÑO --- */
+    box-sizing: border-box;
+    line-height: 1.3;
+}
+
+.btn-eliminar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    /* --- ESTO IGUALA EL TAMAÑO --- */
+    box-sizing: border-box;
+    line-height: 1.3;
+}
+
+.btn-eliminar i {
+    color: var(--primary);
+}
+
+/* =========================================
+   ESTILOS DE GESTIÓN DE CATEGORÍAS
+   ========================================= */
+
+/* Para separar elementos un poco hacia abajo en los formularios */
+.margen-arriba-15px {
+    margin-top: 15px;
+}
+
+.margen-arriba-20px {
+    margin-top: 20px;
+}
+
+/* Estilo para que el campo de la descripción ocupe todo el ancho disponible */
+.caja-texto-descripcion {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    font-family: inherit;
+    resize: vertical; /* Permite estirarlo hacia abajo, pero no a los lados */
+}
+
+/* Tamaño fijo para que los iconos de las categorías no descuadren la tabla */
+.icono-pequeno-tabla {
+    width: 30px;
+    height: auto;
+    display: block;
+}
+
+/* Color apagado para diferenciar visualmente las subcategorías */
+.texto-gris-subcategoria {
+    color: var(--text-muted);
+}
+
+/* Color fuerte (del tema) para destacar las categorías principales */
+.texto-morado-principal {
+    color: var(--primary-dk);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+    ESTILOS: PARA AJUSTAR LA PANTALLA EN DIFERENTES DISPOSITIVOS
+   ========================================================================== */
+
+/* 1. TABLETS Y ORDENADORES PEQUEÑOS (Pantallas menores de 1024px) */
+/* ==========================================================================
+    ESTILOS: PARA AJUSTAR LA PANTALLA EN DIFERENTES DISPOSITIVOS
+   ========================================================================== */
+
+/* 1. TABLETS Y ORDENADORES PEQUEÑOS (Pantallas menores de 1024px) */
+@media (max-width: 1024px) {
+    /* Evitamos que el contenido pegue con los bordes de la pantalla */
+    .contenido_principal {
+        padding: 0 20px; 
+    }
+
+    /* Ajustamos el menú para que los enlaces no se monten unos encima de otros */
+    .barranav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .boton-salida {
+        margin-left: 0; 
+    }
+}
+
+/* 2. TELÉFONOS MÓVILES (Pantallas menores de 768px) */
+@media (max-width: 768px) {
+    /* Quitamos el column para que quede horizontal */
+    .barranav {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    /* En móvil ocultamos el texto y dejamos solo el icono */
+    .barranav .texto {
+        display: none;
+    }
+
+    .boton-salida {
+        width: auto; /* Quitamos el 100% que tenías antes */
+        text-align: center;
+    }
+    .pagina-login {
+        justify-content: center;
+    }
+
+    /* Hacemos que la caja de login sea flexible y no rompa la pantalla */
+    .tarjeta-login {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    /* Hacemos que las columnas del footer ocupen el 100% y se centren */
+    .footer section {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .texto_arriba {
+        margin-top: 200px;
+    }
+    .bienvenida {
+        flex-direction: column;
+        text-align: center;
+    }
+    .bienvenida-imagen {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+/* 3. TELEVISORES Y PANTALLAS ULTRA WIDE (Pantallas mayores de 1920px) */
+@media (min-width: 1920px) {
+}
