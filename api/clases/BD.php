@@ -14,7 +14,7 @@ class BD {
             $puerto     = getenv('DB_PORT');
             $bd         = getenv('DB_NAME');
             $usuario    = getenv('DB_USER');
-            $contrasena = getenv('DB_PASSWORD');
+            $contrasena = getenv('DB_PASSWORD'); // CampusDigitalP@ssw0r contraseña de supabase
 
             $dsn = "pgsql:host=$host;port=$puerto;dbname=$bd";
 
