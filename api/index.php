@@ -1,5 +1,5 @@
 <?php
-require_once 'clases/categoria.php';
+require_once __DIR__ . '/clases/categoria.php';
 
 // Llamamos al método estático 'obtenerCategorias' de la clase Categoria.
 // Un método estático se llama directamente sobre la clase (con ::) sin necesidad de crear un objeto primero.
@@ -16,11 +16,11 @@ $categorias = Categoria::obtenerCategorias();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Fuente 'Inter' de Google Fonts . -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href=<?php echo __DIR__ . "/../assets/estilos.css"; ?>>
+    <link rel="stylesheet" href=<?php echo __DIR__ . "/assets/estilos.css"; ?>>
 </head>
 <body>
 
-<?php include_once __DIR__ . '/../includes/nav.php'; ?>
+<?php include_once __DIR__ . '/includes/nav.php'; ?>
 
 <main class="contenido_principal">
 
@@ -31,7 +31,7 @@ $categorias = Categoria::obtenerCategorias();
             <p>Aquí encontrarás información clara y sencilla sobre tus derechos como trabajada en España. No importa tu situación, tienes derechos y estamos aquí para ayudarte a conocerlos.</p>
         </section>
         <section class="bienvenida-imagen">
-            <img src=<?php echo __DIR__ . "/../assets/imagenes/trabajadoras_ilustracion.jpg"; ?> alt="Ilustración de trabajadores de diferentes sectores">
+            <img src=<?php echo __DIR__ . "/assets/imagenes/trabajadoras_ilustracion.jpg"; ?> alt="Ilustración de trabajadores de diferentes sectores">
         </section>
     </section>
     <!-- Sección del encabezado de debajo del nav -->
@@ -69,7 +69,7 @@ $categorias = Categoria::obtenerCategorias();
 
 <?php
 // Para incluir el pie de página.
-include_once __DIR__ . '/../includes/footer.php';
+include_once __DIR__ . '/includes/footer.php';
 ?>
 
 </body>
