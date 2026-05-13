@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/clases/bloque.php';
-require_once __DIR__ . '/clases/categoria.php';
+require_once __DIR__ . '/../clases/bloque.php';
+require_once __DIR__ . '/../clases/categoria.php';
 
 // Obtención del ID de categoría de forma segura
 $id_categoria = isset($_GET['id']) ? (int)$_GET['id'] : 0;
