@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . 'includes/nav.php';
-include_once __DIR__ . 'clases/categoria.php';
+include_once __DIR__ . '/includes/nav.php';
+include_once __DIR__ . '/clases/categoria.php';
 // Obtenemos el ID de la categoría madre desde la URL
 if (isset($_GET['id'])) {
     $id_madre = (int)$_GET['id'];
