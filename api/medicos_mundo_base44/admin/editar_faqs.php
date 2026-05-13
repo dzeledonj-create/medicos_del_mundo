@@ -1,5 +1,5 @@
 <?php
-require_once '../clases/faq.php';
+require_once   '../clases/faq.php';
 
 session_start();
 
