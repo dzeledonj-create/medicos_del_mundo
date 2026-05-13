@@ -134,9 +134,9 @@ class Categoria {
      */
     public function getEnlace() {
         if (Categoria::tieneHijas($this->id_categoria)) {
-            return "/subcategorias.php?id=" . $this->id_categoria;
+            return "/../subcategorias.php?id=" . $this->id_categoria;
         } else {
-            return "/contenido.php?id=" . $this->id_categoria;
+            return "/../contenido.php?id=" . $this->id_categoria;
         }
     }
 
