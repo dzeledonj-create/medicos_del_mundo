@@ -1,5 +1,5 @@
 <?php
-require_once 'BD.php';
+require_once __DIR__ . '/BD.php';
 
 /**
  * Clase Bloque. Representa un bloque de contenido informativo.
@@ -56,7 +56,7 @@ class Bloque {
 
     // Si no hay imagen en la BD devuelve una imagen por defecto para no romper el <img>
     public function getUrlImagen() {
-        return $this->url_imagen ?: 'assets/imagenes/default.png';
+        return $this->url_imagen ?: '/assets/imagenes/default.png';
     }
 
     // ── Setters ──────────────────────────────────────────────────────────────

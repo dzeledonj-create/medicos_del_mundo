@@ -16,7 +16,7 @@ $categorias = Categoria::obtenerCategorias();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Fuente 'Inter' de Google Fonts . -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/estilos.css"; ?>>
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
@@ -31,7 +31,7 @@ $categorias = Categoria::obtenerCategorias();
             <p>Aquí encontrarás información clara y sencilla sobre tus derechos como trabajada en España. No importa tu situación, tienes derechos y estamos aquí para ayudarte a conocerlos.</p>
         </section>
         <section class="bienvenida-imagen">
-            <img src="/assets/imagenes/trabajadoras_ilustracion.jpg"; ?> alt="Ilustración de trabajadores de diferentes sectores">
+            <img src="/assets/imagenes/trabajadoras_ilustracion.jpg" alt="Ilustración de trabajadores de diferentes sectores">
         </section>
     </section>
     <!-- Sección del encabezado de debajo del nav -->

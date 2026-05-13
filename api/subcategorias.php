@@ -1,6 +1,6 @@
 <?php
-include_once 'includes/nav.php';
-include_once 'clases/categoria.php';
+include_once __DIR__ . '/includes/nav.php';
+include_once __DIR__ . '/clases/categoria.php';
 // Obtenemos el ID de la categoría madre desde la URL
 if (isset($_GET['id'])) {
     $id_madre = (int)$_GET['id'];
@@ -18,7 +18,7 @@ $subcategorias = Categoria::obtenerHijas($id_madre);
     <title>Médicos del Mundo - Inicio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/estilos.css">
+    <link rel="stylesheet" href="/assets/estilos.css">
 </head>
 <body>
 
@@ -70,7 +70,7 @@ $subcategorias = Categoria::obtenerHijas($id_madre);
     </section>
 </main>
 
-<?php include_once 'includes/footer.php'; ?>
+<?php include_once __DIR__ . '/includes/footer.php'; ?>
 
 </body>
 </html>
